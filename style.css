@@ -3,16 +3,23 @@ body {
     background-color: #103713;
 }
 
-.title {
+.header {
     display: flex;
+    justify-content: space-between;
     color: #fffdf5;
     margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 30px;
+}
+
+.success_msg {
     padding-top: 30px;
 }
 
 h2 {
     color: #103713;
 }
+
 
 .form {
     background-color: #fffdf5;
@@ -57,11 +64,31 @@ button {
     justify-self: center;
     padding: 10px;
     border-radius: 20px;
+    border: 2px solid #103713;
     padding-left: 500px;
     padding-right: 500px;
     color: #fffdf5;
     background-color: #628b35;
-    font-size: 800;
+    font-weight: 500;
     font-size: 1rem;
     margin: 10px;
 }
+
+
+table {
+    width: 80%;
+    margin: 0 auto; 
+}
+
+
+th, td {
+    border: 2px solid #103713;
+    padding: 8px;
+    text-align: left;
+}
+  
+th {
+    background-color: #628b35;
+    color: #fffdf5;
+}
+  

@@ -149,15 +149,20 @@ if (!empty($appointments) && !empty($reviews)) {
 
 <body>
 
-  <div class="title">
+  <div class="header">
     <h1>Healthcare Microservices</h1>
+
+    <div class="success_msg">
+      
+      <?php if ($message): ?>
+        <p><strong><?= htmlspecialchars($message) ?></strong></p>
+      <?php endif; ?>
+    </div>
   </div>
 
-  <?php if ($message): ?>
-    <p><strong><?= htmlspecialchars($message) ?></strong></p>
-  <?php endif; ?>
-
-  <div class="form patient">
+  
+  
+  <div class="form patient">  
     <h2>Create Patient</h2>
     <div class="sub patient">
       <form method="POST">
@@ -253,16 +258,26 @@ if (!empty($appointments) && !empty($reviews)) {
     <h2>Reviews for Selected Patient</h2>
     <div class="result">
       <?php if (!empty($reviews)): ?>
-        <ul>
-          <?php foreach ($reviews as $review): ?>
-            <li>
-              <strong>Appointment ID:</strong> <?= htmlspecialchars($review['appointment_id']) ?>,
-              <strong>Rating:</strong> <?= htmlspecialchars($review['rating']) ?>,
-              <strong>Comment:</strong> <?= htmlspecialchars($review['comment'] ?? '') ?>
-              <strong>Sentiment:</strong> <?= htmlspecialchars($review['sentiment'] ?? '') ?>
-            </li>
-          <?php endforeach; ?>
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Appointment ID</th>
+              <th>Rating</th>
+              <th>Comment</th>
+              <th>Sentiment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($reviews as $review): ?>
+              <tr>
+                <td><?= htmlspecialchars($review['appointment_id']) ?></td>
+                <td><?= htmlspecialchars($review['rating']) ?></td>
+                <td><?= htmlspecialchars($review['comment'] ?? '') ?></td>
+                <td><?= htmlspecialchars($review['sentiment'] ?? '') ?></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
       <?php else: ?>
         <p>No reviews found for selected patient.</p>
       <?php endif; ?>
