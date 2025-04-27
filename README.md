@@ -4,6 +4,7 @@
 Notes Before Running :
 * The Program was originally made while connecting to an onine mysql database.
 * The Program also needs to have an OPENAI_API_KEY variable in the reviewService .env for the needs of sentiment analysis
+* Make sure to do composer update in every project first
 
 To run the program first :
 ----------------------------------------------------------------------------------------------------------------------------------------------------
