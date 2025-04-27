@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb4c8176e43db2fb4b5e727b41bb60a7",
+    "content-hash": "ff2123d4ecd30b745f8da469b87450a4",
     "packages": [
         {
             "name": "brick/math",
@@ -132,28 +132,28 @@
         },
         {
             "name": "darkaonline/swagger-lume",
-            "version": "9.0",
+            "version": "10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DarkaOnLine/SwaggerLume.git",
-                "reference": "ec5925232142a5b51b9114ba28978d00aeee8ca1"
+                "reference": "7d93facb08d66446c75a51cdfc70f10578671504"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DarkaOnLine/SwaggerLume/zipball/ec5925232142a5b51b9114ba28978d00aeee8ca1",
-                "reference": "ec5925232142a5b51b9114ba28978d00aeee8ca1",
+                "url": "https://api.github.com/repos/DarkaOnLine/SwaggerLume/zipball/7d93facb08d66446c75a51cdfc70f10578671504",
+                "reference": "7d93facb08d66446c75a51cdfc70f10578671504",
                 "shasum": ""
             },
             "require": {
-                "laravel/lumen-framework": "~6.0 || ~7.0 || ^8.0 || ^9.0",
+                "laravel/lumen-framework": "~6.0 || ~7.0 || ^8.0 || ^9.0 || ^10.0",
                 "php": ">=7.2 || ^8.0",
-                "swagger-api/swagger-ui": "^3.0",
+                "swagger-api/swagger-ui": "^3.0 || ^4.0",
                 "zircote/swagger-php": "~2.0 || 3.*"
             },
             "require-dev": {
                 "mockery/mockery": "1.*",
                 "php-coveralls/php-coveralls": "^2.0",
-                "phpunit/phpunit": "9.*"
+                "phpunit/phpunit": "^10.0 || ^9.5"
             },
             "type": "library",
             "autoload": {
@@ -187,7 +187,7 @@
             ],
             "support": {
                 "issues": "https://github.com/DarkaOnLine/SwaggerLume/issues",
-                "source": "https://github.com/DarkaOnLine/SwaggerLume/tree/9.0"
+                "source": "https://github.com/DarkaOnLine/SwaggerLume/tree/10.0"
             },
             "funding": [
                 {
@@ -195,7 +195,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-06T18:59:16+00:00"
+            "time": "2023-05-09T13:27:30+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -4453,16 +4453,16 @@
         },
         {
             "name": "swagger-api/swagger-ui",
-            "version": "v3.52.5",
+            "version": "v4.19.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swagger-api/swagger-ui.git",
-                "reference": "f1ad60dc92e7edb0898583e16c3e66fe3e9eada2"
+                "reference": "92ffd76d15671954c239fdefb43d1951e06f8bb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/f1ad60dc92e7edb0898583e16c3e66fe3e9eada2",
-                "reference": "f1ad60dc92e7edb0898583e16c3e66fe3e9eada2",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/92ffd76d15671954c239fdefb43d1951e06f8bb5",
+                "reference": "92ffd76d15671954c239fdefb43d1951e06f8bb5",
                 "shasum": ""
             },
             "type": "library",
@@ -4508,9 +4508,9 @@
             ],
             "support": {
                 "issues": "https://github.com/swagger-api/swagger-ui/issues",
-                "source": "https://github.com/swagger-api/swagger-ui/tree/v3.52.5"
+                "source": "https://github.com/swagger-api/swagger-ui/tree/v4.19.1"
             },
-            "time": "2021-10-14T14:25:14+00:00"
+            "time": "2023-06-12T16:31:43+00:00"
         },
         {
             "name": "symfony/console",
@@ -8677,12 +8677,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }

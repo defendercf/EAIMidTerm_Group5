@@ -138,105 +138,136 @@ if (!empty($appointments) && !empty($reviews)) {
 
 <head>
   <meta charset="UTF-8" />
-  <title>Healthcare Microservices Frontend</title>
+  <title>Healthcare Microservices</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-  <h1>Healthcare Microservices Frontend</h1>
+
+  <div class="title">
+    <h1>Healthcare Microservices</h1>
+  </div>
 
   <?php if ($message): ?>
     <p><strong><?= htmlspecialchars($message) ?></strong></p>
   <?php endif; ?>
 
-  <h2>Create Patient</h2>
-  <form method="POST">
-    <input type="hidden" name="create_patient" />
-    <label>Name: <input type="text" name="patient_name" required></label><br>
-    <label>Username: <input type="text" name="username" required></label><br>
-    <label>Email: <input type="email" name="email" required></label><br>
-    <label>Password: <input type="password" name="password" required></label><br>
-    <label>Date of Birth: <input type="date" name="date_of_birth" required></label><br>
-    <label>Gender:
-      <select name="gender" required>
-        <option value="">--Select--</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Other</option>
-      </select>
-    </label><br>
-    <button type="submit">Create Patient</button>
-  </form>
+  <div class="form patient">
+    <h2>Create Patient</h2>
+    <div class="sub patient">
+      <form method="POST">
+        <div class="form_input">
+          <input type="hidden" name="create_patient" />
+          <label>Name: <input type="text" name="patient_name" required></label><br>
+          <label>Username: <input type="text" name="username" required></label><br>
+          <label>Email: <input type="email" name="email" required></label><br>
+          <label>Password: <input type="password" name="password" required></label><br>
+          <label>Date of Birth: <input type="date" name="date_of_birth" required></label><br>
+          <label>Gender:
+            <select name="gender" required>
+              <option value="">--Select--</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </label><br>
+        
+        <button type="submit">Create Patient</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-  <hr>
 
-  <h2>Create Appointment</h2>
-  <form method="POST">
-    <input type="hidden" name="create_appointment" />
-    <label>Patient:
-      <select name="patient_id" required>
-        <option value="">--Select Patient--</option>
-        <?php foreach ($patients as $p): ?>
-          <option value="<?= htmlspecialchars($p['id']) ?>"><?= htmlspecialchars($p['patient_name']) ?></option>
-        <?php endforeach; ?>
-      </select>
-    </label><br>
-    <label>Date: <input type="date" name="date" required></label><br>
-    <label>Time: <input type="time" name="time" required></label><br>
-    <button type="submit">Create Appointment</button>
-  </form>
+  <div class="form appointment">
+    <h2>Create Appointment</h2>
+    <div class="sub appointment">
+      <form method="POST">
+        <div class="form_input">
+          <input type="hidden" name="create_appointment" />
+          <label>Patient:
+            <select name="patient_id" required>
+              <option value="">--Select Patient--</option>
+              <?php foreach ($patients as $p): ?>
+                <option value="<?= htmlspecialchars($p['id']) ?>"><?= htmlspecialchars($p['patient_name']) ?></option>
+              <?php endforeach; ?>
+            </select>
+          </label><br>
+          <label>Date: <input type="date" name="date" required></label><br>
+          <label>Time: <input type="time" name="time" required></label><br>
+        
+          <button type="submit">Create Appointment</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-  <hr>
 
+
+  <div class="form review">
   <h2>Create Review</h2>
-  <form method="POST" id="reviewForm">
-    <input type="hidden" name="create_review" />
-    <label>Patient:
-      <select name="review_patient_id" required onchange="this.form.submit()">
-        <option value="">--Select Patient--</option>
-        <?php foreach ($patients as $p): ?>
-          <option value="<?= htmlspecialchars($p['id']) ?>" <?= ($p['id'] == $currentPatientId) ? 'selected' : '' ?>>
-            <?= htmlspecialchars($p['patient_name']) ?>
-          </option>
-        <?php endforeach; ?>
-      </select>
-    </label><br>
+    <div class="sub review">
+      <form method="POST" id="reviewForm">
+        <div class="form_input">
+          <input type="hidden" name="create_review" />
+          <label>Patient:
+            <select name="review_patient_id" required onchange="this.form.submit()">
+              <option value="">--Select Patient--</option>
+              <?php foreach ($patients as $p): ?>
+                <option value="<?= htmlspecialchars($p['id']) ?>" <?= ($p['id'] == $currentPatientId) ? 'selected' : '' ?>>
+                  <?= htmlspecialchars($p['patient_name']) ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
+          </label><br>
 
-    <label>Appointment:
-      <select name="appointment_id" required <?= empty($appointments) ? 'disabled' : '' ?>>
-        <option value="">--Select Appointment--</option>
-        <?php foreach ($appointments as $a): ?>
-          <option value="<?= htmlspecialchars($a['id']) ?>">
-            <?= htmlspecialchars("ID {$a['id']} on {$a['date']} at {$a['time']}") ?>
-          </option>
-        <?php endforeach; ?>
-      </select>
-    </label><br>
+          <label>Appointment:
+            <select name="appointment_id" required <?= empty($appointments) ? 'disabled' : '' ?>>
+              <option value="">--Select Appointment--</option>
+              <?php foreach ($appointments as $a): ?>
+                <option value="<?= htmlspecialchars($a['id']) ?>">
+                  <?= htmlspecialchars("ID {$a['id']} on {$a['date']} at {$a['time']}") ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
+          </label><br>
 
-    <label>Rating (1-5): <input type="number" name="rating" min="1" max="5" required></label><br>
-    <label>Comment: <input type="text" name="comment"></label><br>
-    <button type="submit" <?= empty($appointments) ? 'disabled' : '' ?>>Create Review</button>
-    <?php if (empty($appointments)): ?>
-      <p><em>No appointments available for selected patient to review.</em></p>
-    <?php endif; ?>
-  </form>
+          <label>Rating (1-5): <input type="number" name="rating" min="1" max="5" required></label><br>
+          <label>Comment: <input type="text" name="comment"></label><br>
+          <button type="submit" <?= empty($appointments) ? 'disabled' : '' ?>>Create Review</button>
+          <?php if (empty($appointments)): ?>
+            <p><em>*No appointments available for selected patient to review.</em></p>
+          <?php endif; ?>
+        </div>
+      </form>
+    </div>
+  </div>
 
-  <hr>
 
-  <h2>Reviews for Selected Patient</h2>
-  <?php if (!empty($reviews)): ?>
-    <ul>
-      <?php foreach ($reviews as $review): ?>
-        <li>
-          <strong>Appointment ID:</strong> <?= htmlspecialchars($review['appointment_id']) ?>,
-          <strong>Rating:</strong> <?= htmlspecialchars($review['rating']) ?>,
-          <strong>Comment:</strong> <?= htmlspecialchars($review['comment'] ?? '') ?>
-          <strong>Sentiment:</strong> <?= htmlspecialchars($review['sentiment'] ?? '') ?>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-  <?php else: ?>
-    <p>No reviews found for selected patient.</p>
-  <?php endif; ?>
+  <div class="form review_results">
+    <h2>Reviews for Selected Patient</h2>
+    <div class="result">
+      <?php if (!empty($reviews)): ?>
+        <ul>
+          <?php foreach ($reviews as $review): ?>
+            <li>
+              <strong>Appointment ID:</strong> <?= htmlspecialchars($review['appointment_id']) ?>,
+              <strong>Rating:</strong> <?= htmlspecialchars($review['rating']) ?>,
+              <strong>Comment:</strong> <?= htmlspecialchars($review['comment'] ?? '') ?>
+              <strong>Sentiment:</strong> <?= htmlspecialchars($review['sentiment'] ?? '') ?>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      <?php else: ?>
+        <p>No reviews found for selected patient.</p>
+      <?php endif; ?>
+    </div>
+  </div>
 </body>
 
 </html>
