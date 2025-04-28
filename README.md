@@ -28,3 +28,8 @@ php -S localhost:8003 -t public
 php -S localhost:8080
 ```
 ----------------------------------------------------------------------------------------------------------------------------------------------------
+To see the API Documentation : 
+You can redirect to the link : 
+```bash
+localhost:{your_port}/swagger-ui/ | in this case for example, localhost:8001/swagger-ui
+```
