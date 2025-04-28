@@ -37,24 +37,6 @@ function swaggerDummyAnnotations()
  *     @OA\Response(response=400, description="Invalid input or service unavailable")
  * )
  *
- * @OA\Get(
- *     path="/reviews/{id}",
- *     summary="Get a review by ID",
- *     tags={"Reviews"},
- *     @OA\Parameter(
- *         name="id",
- *         in="path",
- *         description="Review ID",
- *         required=true,
- *         @OA\Schema(type="integer", example=1)
- *     ),
- *     @OA\Response(
- *         response=200,
- *         description="Review found",
- *         @OA\JsonContent(ref="#/components/schemas/Review")
- *     ),
- *     @OA\Response(response=404, description="Review not found")
- * )
  *
  * @OA\Get(
  *     path="/reviews",
@@ -154,14 +136,6 @@ $router->post('/reviews', function (Request $request) {
         'sentiment' => $sentiment,
     ]);
 
-    return response()->json($review);
-});
-
-$router->get('/reviews/{id}', function ($id) {
-    $review = Review::find($id);
-    if (!$review) {
-        return response()->json(['error' => 'Review not found'], 404);
-    }
     return response()->json($review);
 });
 
