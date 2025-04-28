@@ -95,41 +95,6 @@
                     }
                 }
             }
-        },
-        "/reviews/{id}": {
-            "get": {
-                "tags": [
-                    "Reviews"
-                ],
-                "summary": "Get a review by ID",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Review ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "example": 1
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Review found",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Review"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "Review not found"
-                    }
-                }
-            }
         }
     },
     "components": {
